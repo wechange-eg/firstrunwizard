@@ -82,16 +82,18 @@ class WizardController extends Controller {
 			'useTLS'       => $this->request->getServerProtocol() === 'https',
 			'macOSProfile' => \OCP\Util::linkToRemote('dav') . 'provisioning/apple-provisioning.mobileconfig',
 		];
-
+        
+        /* Wechange overwrite */
 		$slides = [
-			$this->staticSlide('page.values', $data)
+			$this->staticSlide('page.content', $data)
 		];
+		/*
 		if ($this->groupManager->isAdmin($this->userId)) {
 			$slides[] = $this->staticSlide('page.apps', $data);
 		}
 		$slides[] = $this->staticSlide('page.clients', $data);
 		$slides[] = $this->staticSlide('page.final', $data);
-
+        */
 		return new JSONResponse($slides);
 	}
 

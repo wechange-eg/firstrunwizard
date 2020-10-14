@@ -14,11 +14,11 @@
 				 src="<?php p(image_path('core', 'actions/view-close.svg')); ?>">
 		</a>
 		<div class="logo">
-			<p class="hidden-visually">
-				<?php p($theme->getName()); ?>
-			</p>
-		</div>
-
+            <p class="hidden-visually">
+                <?php p($theme->getName()); ?>
+            </p>
+        </div>
+		
 		<h2><?php print_unescaped(htmlspecialchars($theme->getSlogan(), ENT_QUOTES, 'UTF-8', false)); ?></h2>
 		<p></p>
 
@@ -26,6 +26,10 @@
 
 	<div class="firstrunwizard-content">
 		<?php
+		/* We only leave in a single page */
+		print_unescaped($this->inc('page.content'));
+		
+		/*
 		print_unescaped($this->inc('page.intro'));
 		print_unescaped($this->inc('page.values'));
 		print_unescaped($this->inc('page.clients'));
@@ -35,6 +39,7 @@
 			print_unescaped($this->inc('page.apps'));
 		}
 		print_unescaped($this->inc('page.final'));
+		*/
 		?>
 
 		<div class="wizard-navigation">
