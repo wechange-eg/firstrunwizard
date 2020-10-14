@@ -11117,7 +11117,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       slides: [],
       currentSlide: 0,
       fadeDirection: 'next',
-      isMobile: window.outerWidth < 1024
+      isMobile: window.outerWidth < 1024,
+      slidesLoaded: false
     };
   },
   computed: {
@@ -11181,29 +11182,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
+                if (!this.slidesLoaded) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.prev = 2;
+                _context2.next = 5;
                 return _nextcloud_axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(Object(_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__["generateUrl"])('/apps/firstrunwizard/wizard'));
 
-              case 3:
+              case 5:
                 response = _context2.sent;
 
                 (_this$slides = this.slides).push.apply(_this$slides, _toConsumableArray(response.data));
 
-                _context2.next = 10;
+                this.slidesLoaded = true;
+                _context2.next = 13;
                 break;
 
-              case 7:
-                _context2.prev = 7;
-                _context2.t0 = _context2["catch"](0);
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](2);
                 console.error('Failed to load slides');
 
-              case 10:
+              case 13:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 7]]);
+        }, _callee2, this, [[2, 10]]);
       }));
 
       function loadStaticSlides() {
