@@ -15,24 +15,24 @@
 		"stylelint:fix": "stylelint **/*.css **/*.scss **/*.vue --fix"
 	},
 	"dependencies": {
-		"@nextcloud/axios": "^1.4.0",
+		"@nextcloud/axios": "^1.6.0",
 		"@nextcloud/initial-state": "^1.2.0",
 		"@nextcloud/l10n": "^1.4.1",
 		"@nextcloud/router": "^1.2.0",
-		"@nextcloud/vue": "^2.6.9",
-		"vue": "^2.6.11"
+		"@nextcloud/vue": "^3.5.4",
+		"vue": "^2.6.12"
 	},
 	"browserslist": [
 		"last 2 versions",
 		"not ie <= 11"
 	],
 	"devDependencies": {
-		"@babel/core": "^7.11.6",
-		"@babel/preset-env": "^7.11.5",
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
 		"@nextcloud/webpack-vue-config": "^1.2.0",
-		"acorn": "^8.0.4",
+		"acorn": "^8.0.5",
 		"babel-eslint": "^10.1.0",
-		"babel-loader": "^8.1.0",
+		"babel-loader": "^8.2.2",
 		"css-loader": "^3.6.0",
 		"eslint": "^6.8.0",
 		"eslint-config-nextcloud": "^0.1.1",
@@ -42,20 +42,20 @@
 		"eslint-plugin-nextcloud": "^0.3.0",
 		"eslint-plugin-node": "^10.0.0",
 		"eslint-plugin-promise": "^4.2.1",
-		"eslint-plugin-standard": "^4.0.1",
+		"eslint-plugin-standard": "^4.1.0",
 		"eslint-plugin-vue": "^5.2.3",
-		"file-loader": "^6.1.1",
+		"file-loader": "^6.2.0",
 		"node-sass": "^4.14.1",
 		"sass-loader": "^8.0.2",
-		"stylelint": "^13.7.2",
+		"stylelint": "^13.9.0",
 		"stylelint-config-recommended-scss": "^4.2.0",
 		"stylelint-scss": "^3.18.0",
-		"stylelint-webpack-plugin": "^2.1.0",
+		"stylelint-webpack-plugin": "^2.1.1",
 		"url-loader": "^4.1.1",
-		"vue-loader": "^15.9.3",
+		"vue-loader": "^15.9.6",
 		"vue-style-loader": "^4.1.2",
-		"vue-template-compiler": "^2.6.11",
-		"webpack": "^4.44.2",
+		"vue-template-compiler": "^2.6.12",
+		"webpack": "^4.46.0",
 		"webpack-cli": "^3.3.12"
 	}
 }
