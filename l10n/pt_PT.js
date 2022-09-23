@@ -20,7 +20,6 @@ OC.L10N.register(
     "App recommendation: Tasks" : "Recomendação de aplicação: Tarefas Nextcloud",
     "App recommendation: Deck" : "Recomendação de aplicação: Deck",
     "App recommendation: Notes" : "Recomendação de aplicação: Notas",
-    "App recommendation: Social" : "Recomendação de aplicação: Social",
     "App recommendation: Group folders" : "Recomendação de aplicação: Pastas de grupo",
     "About" : "Sobre",
     "Get the apps to sync your files" : "Obtenha as aplicações para sincronizar os seus ficheiros",
@@ -32,17 +31,16 @@ OC.L10N.register(
     "Access files via WebDAV" : "Aceder aos ficheiros via WebDAV",
     "Download macOS/iOS configuration profile" : "Transferir perfil de configuração de macOS/iOS",
     "Get help" : "Obter ajuda",
+    "Start contributing" : "Começar a contribuir",
+    "Become part of the Community" : "Faça parte da comunidade",
     "Get more information" : "Obter mais informação",
     "User manual" : "Manual do utilizador",
     "Admin manual" : "Manual do administrador",
     "Developer manual" : "Manual do programador",
     "the Nextcloud forums" : "os fóruns Nextcloud",
-    "Start contributing" : "Começar a contribuir",
-    "Become part of the Community" : "Faça parte da comunidade",
     "A safe home for all your data" : "Um local seguro para todos os seus dados",
     "Server address" : "Endereço do servidor",
     "Copy link" : "Copiar hiperligação",
-    "Start using Nextcloud" : "Começar a usar a Nextcloud",
     "Android app" : "Aplicação Android"
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

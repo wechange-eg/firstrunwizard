@@ -39,7 +39,11 @@ script('firstrunwizard', ['personalsettings']);
 		</a>
 		<a href="<?php p($_['clients']['android']); ?>" rel="noreferrer noopener" target="_blank">
 			<img src="<?php print_unescaped(image_path('core', 'googleplay.png')); ?>"
-				 alt="<?php p($l->t('Android app'));?>" />
+				 alt="<?php p($l->t('Android app on Google Play Store'));?>" />
+		</a>
+		<a href="<?php p($_['clients']['fdroid']); ?>" rel="noreferrer noopener" target="_blank">
+			<img src="<?php print_unescaped(image_path('core', 'f-droid.svg')); ?>"
+				 alt="<?php p($l->t('Android app on F-Droid'));?>" />
 		</a>
 		<a href="<?php p($_['clients']['ios']); ?>" rel="noreferrer noopener" target="_blank">
 			<img src="<?php print_unescaped(image_path('core', 'appstore.svg')); ?>"
@@ -74,7 +78,7 @@ script('firstrunwizard', ['personalsettings']);
 				 src="<?php p(image_path('files', 'folder.svg')); ?>" />
 			<?php p($l->t('Access files via WebDAV'));?>
 		</a>
-		<?php if($usesTLS): ?>
+		<?php if ($usesTLS): ?>
 		<a target="_blank" class="button" href="<?php p($macOSProfile); ?>" rel="noreferrer noopener">
 			<img class="appsmall appsmall-contacts svg" alt=""
 				 src="<?php p(image_path('core', 'places/default-app-icon.svg')); ?>" />

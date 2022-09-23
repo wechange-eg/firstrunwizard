@@ -21,7 +21,6 @@
 
 namespace OCA\FirstRunWizard\Controller;
 
-
 use OCA\FirstRunWizard\AppInfo\Application;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
@@ -63,7 +62,7 @@ class WizardController extends Controller {
 		$this->theming = $theming;
 		$this->groupManager = $groupManager;
 
-		$this->slides = explode(',', $this->config->getAppValue(Application::APP_ID, 'slides', 'content,video,values,apps,clients,final'));
+		$this->slides = explode(',', $this->config->getAppValue(Application::APP_ID, 'slides', 'video,values,apps,clients,final'));
 	}
 
 	/**
@@ -83,24 +82,23 @@ class WizardController extends Controller {
 		$appStore = $this->config->getSystemValue('appstoreenabled', true);
 
 		$data = [
-			'desktop'      => $this->config->getSystemValue('customclient_desktop', $this->theming->getSyncClientUrl()),
-			'android'      => $this->config->getSystemValue('customclient_android', $this->theming->getAndroidClientUrl()),
-			'ios'          => $this->config->getSystemValue('customclient_ios', $this->theming->getiOSClientUrl()),
-			'appStore'     => $appStore,
-			'useTLS'       => $this->request->getServerProtocol() === 'https',
+			'desktop' => $this->config->getSystemValue('customclient_desktop', $this->theming->getSyncClientUrl()),
+			'android' => $this->config->getSystemValue('customclient_android', $this->theming->getAndroidClientUrl()),
+			'fdroid' => $this->config->getSystemValue('customclient_fdroid', $this->theming->getFDroidClientUrl()),
+			'ios' => $this->config->getSystemValue('customclient_ios', $this->theming->getiOSClientUrl()),
+			'appStore' => $appStore,
+			'useTLS' => $this->request->getServerProtocol() === 'https',
 			'macOSProfile' => \OCP\Util::linkToRemote('dav') . 'provisioning/apple-provisioning.mobileconfig',
 		];
 
 		$slides = [];
-        /* wechange overwrites*/
-		$slides[] = $this->staticSlide('page.content', $data);
-		/*
+
+		$slides[] = $this->staticSlide('page.values', $data);
 		if ($appStore && $this->groupManager->isAdmin($this->userId)) {
 			$slides[] = $this->staticSlide('page.apps', $data);
 		}
 		$slides[] = $this->staticSlide('page.clients', $data);
 		$slides[] = $this->staticSlide('page.final', $data);
-        */
 
 		return new JSONResponse([
 			'hasVideo' => in_array('video', $this->slides, true),
@@ -117,7 +115,7 @@ class WizardController extends Controller {
 
 		$template = new \OCP\Template($this->appName, $name, false);
 
-		foreach($params as $key => $value){
+		foreach ($params as $key => $value) {
 			$template->assign($key, $value);
 		}
 

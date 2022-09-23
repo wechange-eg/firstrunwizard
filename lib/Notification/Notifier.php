@@ -21,7 +21,6 @@
 
 namespace OCA\FirstRunWizard\Notification;
 
-
 use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUserManager;
@@ -103,7 +102,8 @@ class Notifier implements INotifier {
 				}
 
 				$notification->setParsedSubject($subject)
-					->setLink($this->url->linkToRouteAbsolute('settings.PersonalSettings.index'));
+					->setLink($this->url->linkToRouteAbsolute('settings.PersonalSettings.index'))
+					->setIcon($this->url->getAbsoluteURL($this->url->imagePath('firstrunwizard', 'user.svg')));
 				return $notification;
 			case 'apphint-calendar':
 			case 'apphint-contacts':
@@ -112,7 +112,7 @@ class Notifier implements INotifier {
 			case 'apphint-tasks':
 			case 'apphint-deck':
 			case 'apphint-notes':
-			case 'apphint-social':
+			//case 'apphint-social':
 			case 'apphint-groupfolders':
 				$app = $notification->getObjectId();
 				return $this->setAppHintDetails($notification, $languageCode, $app);
@@ -142,13 +142,13 @@ class Notifier implements INotifier {
 		if ($user->canChangeDisplayName() && $user->getDisplayName() === $user->getUID()) {
 			if ($user->canChangeAvatar() && $user->getAvatarImage(32) === null) {
 				return $l->t('Add your profile information! Set a profile picture and full name for easier recognition across all features.');
-			} else  {
+			} else {
 				return $l->t('Add your profile information! Set a full name for easier recognition across all features.');
 			}
 		} else {
 			if ($user->canChangeAvatar() && $user->getAvatarImage(32) === null) {
 				return $l->t('Add your profile information! Set a profile picture for easier recognition across all features.');
-			} else  {
+			} else {
 				return '';
 			}
 		}
@@ -194,11 +194,11 @@ class Notifier implements INotifier {
 				$notification->setParsedMessage($l->t('Distraction-free notes and writing.'));
 				$appLink = '/organization/notes';
 				break;
-			case 'social':
-				$notification->setParsedSubject($l->t('App recommendation: Social'));
-				$notification->setParsedMessage($l->t('Nextcloud becomes part of the federated social networks.'));
-				$appLink = '/social/social';
-				break;
+			// case 'social':
+			// 	$notification->setParsedSubject($l->t('App recommendation: Social'));
+			// 	$notification->setParsedMessage($l->t('Nextcloud becomes part of the federated social networks.'));
+			// 	$appLink = '/social/social';
+			// 	break;
 			case 'groupfolders':
 				$notification->setParsedSubject($l->t('App recommendation: Group folders'));
 				$notification->setParsedMessage($l->t('Admin-configured folders shared by everyone in a group.'));
@@ -210,5 +210,4 @@ class Notifier implements INotifier {
 			->setIcon($this->url->getAbsoluteURL($this->url->imagePath('firstrunwizard', 'apps/'. $app . '.svg')));
 		return $notification;
 	}
-
 }

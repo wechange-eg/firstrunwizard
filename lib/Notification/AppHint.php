@@ -28,7 +28,7 @@ use OCP\IConfig;
 use OCP\IGroupManager;
 use OCP\Notification\IManager as INotificationManager;
 
-class AppHint  {
+class AppHint {
 
 	/** @var INotificationManager */
 	protected $notificationManager;
@@ -45,12 +45,12 @@ class AppHint  {
 	/** @var string */
 	private $userId;
 
-	const APP_HINT_VERSION = '18';
+	public const APP_HINT_VERSION = '18';
 
 	public function __construct(INotificationManager $notificationManager, IGroupManager $groupManager, IAppManager $appManager, IConfig $config, $userId) {
 		$this->notificationManager = $notificationManager;
 		$this->groupManager = $groupManager;
-		$this->appManager =$appManager;
+		$this->appManager = $appManager;
 		$this->config = $config;
 		$this->userId = $userId;
 	}
@@ -58,7 +58,7 @@ class AppHint  {
 	public function sendAppHintNotifications(): void {
 		if ($this->userId !== null && $this->groupManager->isAdmin($this->userId) && $this->config->getUserValue($this->userId, 'firstrunwizard', 'apphint') !== self::APP_HINT_VERSION) {
 			$this->sendNotification('groupfolders', $this->userId);
-			$this->sendNotification('social', $this->userId);
+			//$this->sendNotification('social', $this->userId);
 			$this->sendNotification('notes', $this->userId);
 			$this->sendNotification('deck', $this->userId);
 			$this->sendNotification('tasks', $this->userId);

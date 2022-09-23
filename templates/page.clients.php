@@ -40,7 +40,12 @@
 			</a>
 			<a target="_blank" href="<?php p($_['android']); ?>" rel="noreferrer noopener">
 				<img src="<?php p(image_path('core', 'googleplay.svg')); ?>"
-					 alt="<?php p($l->t('Android app')); ?>"
+					 alt="<?php p($l->t('Android app on Google Play Store')); ?>"
+					 style="height:60px"/>
+			</a>
+			<a target="_blank" href="<?php p($_['fdroid']); ?>" rel="noreferrer noopener">
+				<img src="<?php p(image_path('core', 'f-droid.svg')); ?>"
+					 alt="<?php p($l->t('Android app on F-Droid')); ?>"
 					 style="height:60px"/>
 			</a>
 			<a target="_blank" href="<?php p($_['ios']); ?>" rel="noreferrer noopener">
@@ -65,7 +70,7 @@
 				<span class="icon icon-files-dark"></span>
 				<?php p($l->t('Access files via WebDAV')); ?>
 			</a>
-			<?php if($_['useTLS']): ?>
+			<?php if ($_['useTLS']): ?>
 			<a target="_blank" class="button"
 			   href="<?php p($_['macOSProfile']); ?>" rel="noreferrer noopener">
 				<span class="icon icon-download"></span>
